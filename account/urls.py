@@ -12,6 +12,7 @@
 from django.urls import path, re_path, include
 from django.contrib import admin
 
+# Django Rest Framework
 from rest_framework.routers import DefaultRouter
 
 from .views import *

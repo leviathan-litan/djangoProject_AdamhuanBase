@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     # Django Rest Framework
     "rest_framework",
 
+    # Swagger
+    "drf_spectacular",
+    "drf_spectacular_sidecar",
+
     # 用户管理
     "account",
 ]
@@ -131,3 +135,25 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Django Rest Framework
+REST_FRAMEWORK = {
+
+    # Swagger
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema'
+}
+
+# Swagger
+
+SPECTACULAR_SETTINGS = {
+    # SIDECAR
+    'SWAGGER_UI_DIST': 'SIDECAR',
+    'SWAGGER_UI_FAVICON_HREF': 'SIDECAR',
+    'REDOC_DIST': 'SIDECAR',
+
+    # 自定义 OpenAPI 描述信息
+    'TITLE': 'Adamhuan Base Api',
+    'DESCRIPTION': '「Adamhuan」基础平台 API',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}

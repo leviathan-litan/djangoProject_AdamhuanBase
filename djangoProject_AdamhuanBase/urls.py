@@ -18,7 +18,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# Swagger
+from drf_spectacular.views import SpectacularJSONAPIView, SpectacularRedocView, SpectacularSwaggerView
+
 urlpatterns = [
+
+    # Swagger
+    path('swagger/json/', SpectacularJSONAPIView.as_view(), name='schema'),
+    path('swagger/ui/', SpectacularSwaggerView.as_view(url_name='schema',), name='swagger-ui'),
+    path('swagger/redoc/', SpectacularRedocView.as_view(url_name='schema',), name='redoc'),
+
     # Django 管理页面
     path("admin/", admin.site.urls),
 
